@@ -21,7 +21,7 @@ const NavBar = () => {
       <nav>
         <ul className="navbar__main-list">
           <Link to="/">
-            <li className="navbar__logo">Sistema de gestion de eventos CUCEI</li>
+            <li className="navbar__logo">Almacenes de datos - Interfaz</li>
           </Link>
           <li className="navbar__item-container">
             {!user && (

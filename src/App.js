@@ -1,48 +1,33 @@
 import { AuthProvider } from "./context/AuthContext";
 import { Route, Routes } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login/Login";
-import EventsPage from "./pages/EventsPage/EventsPage";
 import ProtectedRoute from "./util/ProtectedRoute";
 import Register from "./pages/Register/Register";
-import CreateEvent from "./pages/CreateEvent";
-import Profile from "./pages/Profile/Profile";
 
 function App() {
-  const xd = () => {
-    <h1>XD</h1>;
-  };
   return (
     <>
       <AuthProvider>
         <NavBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>}/>
           <Route
-            path="/events"
+            path="/upload"
             element={
               <ProtectedRoute>
-                <EventsPage />
+                <Login />
               </ProtectedRoute>
             }
           />
           <Route
-            path="/create_event"
+            path="/check"
             element={
               <ProtectedRoute>
-                <CreateEvent />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
+                <Login />
               </ProtectedRoute>
             }
           />

@@ -8,19 +8,13 @@ import { getFirestore, collection } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   // put your credentials here
-  apiKey: "AIzaSyCj411kLJG_pLIrXUDMYCrwQz01GgdK3oA",
-
-  authDomain: "ingsoft-9d0f5.firebaseapp.com",
-
-  projectId: "ingsoft-9d0f5",
-
-  storageBucket: "ingsoft-9d0f5.appspot.com",
-
-  messagingSenderId: "491889383585",
-
-  appId: "1:491889383585:web:c24e89a6c9659310e5b8e0",
-
-  databaseURL: "https://ingsoft-9d0f5.firebaseio.com",
+  apiKey: "AIzaSyCgkqbpLAebo2IzlwyHD0djhbrEKcgsYyg",
+  authDomain: "data-wh-79ee8.firebaseapp.com",
+  projectId: "data-wh-79ee8",
+  storageBucket: "data-wh-79ee8.appspot.com",
+  messagingSenderId: "91023395556",
+  appId: "1:91023395556:web:2ae689cfc27f17c0317af1",
+  databaseURL: "https://data-wh-79ee8.firebaseio.com",
 };
 
 // Initialize Firebase
