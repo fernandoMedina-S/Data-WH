@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
+import { get } from "../../util/axios.service";
+import axios from "axios";
 
 const data = [
   ["Task", "Hours per Day"],
@@ -27,23 +29,39 @@ const data4 = [
 ];
 
 const data5 = [
-    ["Sector", "Número total"],
-    ["PRIVADO", 3635],
-    ["PUBLICO", 12266]
-]
+  ["Sector", "Número total"],
+  ["PRIVADO", 3635],
+  ["PUBLICO", 12266],
+];
 
 const options = {
   title: "My Daily Activities",
 };
 
 const Graphs = () => {
+  const [escuelas_por_colonia, set_escuelas_por_colonia] = useState(null);
+  const [nivel_escuelas, set_nivel_escuelas] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/nivel-escuelas").then((response) => {
+      set_nivel_escuelas(response.data);
+      console.log("datos:", response);
+    });
+
+    axios.get("http://localhost:5000/escuelas-por-colonia/").then((response) => {
+      set_escuelas_por_colonia(response.data);
+      console.log("datos:", response);
+    });
+    
+  }, []);
+
   return (
     <>
       <h1>Página con vistas</h1>
       <div className="graphs__graph-area">
         <Chart
           chartType="PieChart"
-          data={data}
+          data={set_escuelas_por_colonia}
           options={{ title: "Escuelas por colonia" }}
           width={"50%"}
           height={"400px"}
@@ -64,15 +82,21 @@ const Graphs = () => {
         />
         <Chart
           chartType="PieChart"
-          data={data4}
-          options={{ title: "Numero de alumnos en las escuelas segun su nivel academico por ciudad" }}
+          data={nivel_escuelas}
+          options={{
+            title:
+              "Numero de alumnos en las escuelas segun su nivel academico por ciudad",
+          }}
           width={"50%"}
           height={"400px"}
         />
         <Chart
           chartType="PieChart"
           data={data5}
-          options={{ title: "Porcentaje de escuelas de nivel publico contra nivel privado en el estado de jalisco" }}
+          options={{
+            title:
+              "Porcentaje de escuelas de nivel publico contra nivel privado en el estado de jalisco",
+          }}
           width={"50%"}
           height={"400px"}
         />
