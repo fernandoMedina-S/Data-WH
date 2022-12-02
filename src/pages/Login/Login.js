@@ -39,7 +39,7 @@ const Login = () => {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
-      navigate("/profile");
+      navigate("/graphs");
     } catch (error) {
       toast.error("Cuenta de Google no válida", {
         position: "top-right",
@@ -105,45 +105,7 @@ const Login = () => {
       />
       <form onSubmit={handleSubmit} className="login__main-container">
         <h2>Inicia Sesión</h2>
-        <div className="login__email-block">
-          <label htmlFor="email" className="login__label-email">
-            Correo
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={handleChange}
-            className="login__input-email"
-            placeholder="ejemplo@dominio.com"
-          />
-        </div>
-        <div className="login__password-block">
-          <label htmlFor="password" className="login__label-password">
-            Contraseña
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-            className="login__input-password"
-            placeholder="*************"
-          />
-        </div>
-
-        <div className="login__second-container">
-          <button className="login__sign-in-button" type="submit">
-            Iniciar
-          </button>
-          <a
-            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-            href="#!"
-            onClick={handleResetPassword}
-          >
-            ¿Olvidaste la contraseña?
-          </a>
-        </div>
+        
         <button onClick={handleGoogleSignin} className="login__google-button">
           Inicia con Google
         </button>

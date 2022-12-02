@@ -31,14 +31,15 @@ const NavBar = () => {
             )}
             {user && admin && (
               <>
-                <Link to="/profile">
-                  <a className="navbar__list-item">Perfil</a>
+              <Link to="/graphs">
+                  <a className="navbar__list-item">
+                    Gráficas
+                  </a>
                 </Link>
-                <Link to="/events">
-                  <a className="navbar__list-item">Eventos</a>
-                </Link>
-                <Link to="/create_event">
-                  <a className="navbar__list-item">Crear evento</a>
+              <Link to="/upload">
+                  <a className="navbar__list-item">
+                    Subir
+                  </a>
                 </Link>
                 <Link to="/login">
                   <a className="navbar__list-item" onClick={handleLogout}>
@@ -49,11 +50,10 @@ const NavBar = () => {
             )}
             {user && !admin && (
               <>
-                <Link to="/profile">
-                  <a className="navbar__list-item">Perfil</a>
-                </Link>
-                <Link to="/events">
-                  <a className="navbar__list-item">Eventos</a>
+              <Link to="/graphs">
+                  <a className="navbar__list-item">
+                    Gráficas
+                  </a>
                 </Link>
                 <Link to="/login">
                   <a className="navbar__list-item" onClick={handleLogout}>

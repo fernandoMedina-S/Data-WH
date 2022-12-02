@@ -1,5 +1,5 @@
 const admin = [
-    {email: "fernando123444@gmail.com", UID: "PbRL5VEtw0bDqQOwCeMwPw3NJnM2"},
+    {email: "fernando123444@gmail.com", UID: "xrrblQhC6MUbNmXuJiW4PPKWzdC2"},
     
 ]
 

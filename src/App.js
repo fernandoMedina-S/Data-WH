@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login/Login";
 import ProtectedRoute from "./util/ProtectedRoute";
 import Register from "./pages/Register/Register";
+import Graphs from "./pages/Graphs/Graphs";
+import Upload from "./pages/Upload/Upload";
 
 function App() {
   return (
@@ -19,15 +21,15 @@ function App() {
             path="/upload"
             element={
               <ProtectedRoute>
-                <Login />
+                <Upload />
               </ProtectedRoute>
             }
           />
           <Route
-            path="/check"
+            path="/graphs"
             element={
               <ProtectedRoute>
-                <Login />
+                <Graphs />
               </ProtectedRoute>
             }
           />
