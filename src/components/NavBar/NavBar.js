@@ -38,7 +38,7 @@ const NavBar = () => {
                 </Link>
               <Link to="/upload">
                   <a className="navbar__list-item">
-                    Subir
+                    Consulta nueva
                   </a>
                 </Link>
                 <Link to="/login">

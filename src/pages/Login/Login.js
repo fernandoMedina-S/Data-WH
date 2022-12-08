@@ -91,18 +91,6 @@ const Login = () => {
 
   return (
     <div className="login__layout">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
       <form onSubmit={handleSubmit} className="login__main-container">
         <h2>Inicia Sesión</h2>
         

@@ -28,6 +28,13 @@ const data4 = [
   ["INICIAL", 5312],
 ];
 
+const xd = [
+  ["Tipo de escuela", "Alumnos"],
+  ["BÁSICA", "255213"],
+  ["ESPECIAL", "2136"],
+  ["INICIAL", "5312"],
+];
+
 const data5 = [
   ["Sector", "Número total"],
   ["PRIVADO", 3635],
@@ -41,18 +48,43 @@ const options = {
 const Graphs = () => {
   const [escuelas_por_colonia, set_escuelas_por_colonia] = useState(null);
   const [nivel_escuelas, set_nivel_escuelas] = useState(null);
+  const [negocios_por_colonia, set_negocios_por_colonia] = useState(null);
+  const [escuelas_num_estudiantes, set_escuelas_num_estudiantes] = useState(null);
+  const [porcentaje, set_porcentaje] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:5000/nivel-escuelas").then((response) => {
       set_nivel_escuelas(response.data);
-      console.log("datos:", response);
+      console.log("datos:", response.data);
     });
 
-    axios.get("http://localhost:5000/escuelas-por-colonia/").then((response) => {
-      set_escuelas_por_colonia(response.data);
-      console.log("datos:", response);
-    });
-    
+    axios
+      .get("http://localhost:5000/escuelas-por-colonia/")
+      .then((response) => {
+        set_escuelas_por_colonia(response.data);
+        console.log("datos:", response.data);
+      });
+    axios
+      .get("http://localhost:5000/negocios-por-colonia/")
+      .then((response) => {
+        set_negocios_por_colonia(response.data);
+        console.log("datos:", response.data);
+      });
+
+    axios
+      .get("http://localhost:5000/escuelas-num-estudiantes/")
+      .then((response) => {
+        set_escuelas_num_estudiantes(response.data);
+        console.log("datos:", response.data);
+      });
+     
+      axios
+      .get("http://localhost:5000/porcentaje_publico_privadas/")
+      .then((response) => {
+        set_porcentaje(response.data);
+        console.log("datos:", response.data);
+      });
+
   }, []);
 
   return (
@@ -61,21 +93,21 @@ const Graphs = () => {
       <div className="graphs__graph-area">
         <Chart
           chartType="PieChart"
-          data={set_escuelas_por_colonia}
+          data={escuelas_por_colonia ? escuelas_por_colonia : data3}
           options={{ title: "Escuelas por colonia" }}
           width={"50%"}
           height={"400px"}
         />
         <Chart
           chartType="PieChart"
-          data={data}
+          data={negocios_por_colonia}
           options={{ title: "Negocios por colonia" }}
           width={"50%"}
           height={"400px"}
         />
         <Chart
           chartType="PieChart"
-          data={data3}
+          data={escuelas_num_estudiantes}
           options={{ title: "Escuelas con mayor número de estudiantes" }}
           width={"100%"}
           height={"400px"}
@@ -92,7 +124,7 @@ const Graphs = () => {
         />
         <Chart
           chartType="PieChart"
-          data={data5}
+          data={porcentaje}
           options={{
             title:
               "Porcentaje de escuelas de nivel publico contra nivel privado en el estado de jalisco",
